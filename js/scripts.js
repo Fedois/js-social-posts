@@ -65,7 +65,7 @@ for(let i = 0; i < post.length; i++){
     footer.classList.add('post__footer')
     footer.innerHTML = `<div class="likes js-likes">
     <div class="likes__cta">
-        <div class="like-button  js-like-button" href="#" data-postid="1">
+        <div class="like-button  js-like-button">
             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
             <span class="like-button__label">Mi Piace</span>
         </div>
@@ -80,19 +80,24 @@ for(let i = 0; i < post.length; i++){
 const numPostLike = [];
 console.log(numPostLike)
 
-const button = document.querySelector('.likes__cta')
-button.addEventListener('click', function(){
-    const buttonColor = document.querySelector('.like-button')
-    let numLikes = document.querySelector('.js-likes-counter')
+const button = document.querySelectorAll('.likes__cta')
+console.log(button)
+for(let i = 0; i < button.length; i++){
+    button[i].addEventListener('click', function(){
+    const buttonColor = document.querySelectorAll('.like-button')
+    let numLikes = document.querySelectorAll('.js-likes-counter')
 
-    if (buttonColor.classList.contains('red') == true){
-        buttonColor.classList.remove('red')
-        numLikes.innerHTML--
-        console.log(post.likes)
+    if (buttonColor[i].classList.contains('red') == true){
+        buttonColor[i].classList.remove('red')
+        numLikes[i].innerHTML--
     }
     else{
-        buttonColor.classList.add('red')
-        numLikes.innerHTML++
+        buttonColor[i].classList.add('red')
+        numLikes[i].innerHTML++
         numPostLike.push(post.numPost)
     }
 })
+}
+
+
+
