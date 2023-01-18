@@ -111,6 +111,7 @@ h1 {
 }
 .likes__cta:hover{
     cursor: pointer;
+    user-select: none;
 }
 .like-button {
     display: inline-block;

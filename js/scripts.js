@@ -122,7 +122,11 @@ for(let i = 0; i < button.length; i++){
     else{
         buttonColor[i].classList.add('red');
         numLikes[i].innerHTML++;
-        numPostLike.push(post[i].numPost);
+
+        if(numPostLike.includes(post[i].numPost) == false){
+            numPostLike.push(post[i].numPost);
+        }
+        
     }
 })
 }
