@@ -1,5 +1,6 @@
 const post = [
     {
+        numPost: 1,
         userName: 'Federico Fois',
         imgUser: 'https://unsplash.it/300/300?image=15',
         date: '05-14-2023',
@@ -8,14 +9,26 @@ const post = [
         likes: 3,
     },
     {
+        numPost: 2,
         userName: 'Mario Rossi',
-        imgUser: 'https://unsplash.it/300/300?image=15',
+        imgUser: 'https://i.picsum.photos/id/814/300/300.jpg?hmac=KfCT542TeSKcJF1UI04ElmkgnM7MaujRNX67Z2wD_pU',
         date: '02-20-2023',
         text: 'Lorem Ipsum',
         image: 'https://unsplash.it/300/300?image=15',
         likes: 7,
+    },
+    {
+        numPost: 3,
+        userName: 'Alessandro Deplano',
+        imgUser: 'https://i.picsum.photos/id/735/300/300.jpg?hmac=7IspCPgojje4HE9ZAY-xKACfF5r2Z9AZpWIV1zC-PK4',
+        date: '03-22-2023',
+        text: 'Lorem Ipsum',
+        image: 'https://img.fotocommunity.com/profilo-di-ragazzo-ce520f37-cc66-403d-b380-b8973b6aeee1.jpg?height=1080',
+        likes: 10,
     }
 ]
+
+console.log(post)
 
 const container = document.getElementById('container')
 
@@ -52,10 +65,10 @@ for(let i = 0; i < post.length; i++){
     footer.classList.add('post__footer')
     footer.innerHTML = `<div class="likes js-likes">
     <div class="likes__cta">
-        <a class="like-button  js-like-button" href="#" data-postid="1">
+        <div class="like-button  js-like-button" href="#" data-postid="1">
             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
             <span class="like-button__label">Mi Piace</span>
-        </a>
+        </div>
     </div>
     <div class="likes__counter">
         Piace a <b id="like-counter-1" class="js-likes-counter">${post[i].likes}</b> persone
@@ -64,10 +77,22 @@ for(let i = 0; i < post.length; i++){
     containerPost.append(footer)
 }
 
+const numPostLike = [];
+console.log(numPostLike)
+
 const button = document.querySelector('.likes__cta')
 button.addEventListener('click', function(){
-    incremento = post.likes
+    const buttonColor = document.querySelector('.like-button')
     let numLikes = document.querySelector('.js-likes-counter')
-    console.log(numLikes)
-    numLikes.innerHTML ++
+
+    if (buttonColor.classList.contains('red') == true){
+        buttonColor.classList.remove('red')
+        numLikes.innerHTML--
+        console.log(post.likes)
+    }
+    else{
+        buttonColor.classList.add('red')
+        numLikes.innerHTML++
+        numPostLike.push(post.numPost)
+    }
 })

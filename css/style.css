@@ -102,7 +102,9 @@ h1 {
     justify-content: space-around;
     align-items: center;
 }
-
+.likes__cta:hover{
+    cursor: pointer;
+}
 .like-button {
     display: inline-block;
     padding: 16px;
@@ -111,17 +113,12 @@ h1 {
     color: #404040;
 }
 
-.like-button:not(.like-button--liked):hover {
+.like-button:hover {
     background-color: #e3e3e3
 }
 
 .like-button__label {
     font-weight: bold;
-}
-
-.like-button--liked {
-    color: #0CD977;
-    cursor: default;
 }
 .red{
     color: red;
